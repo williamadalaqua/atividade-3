@@ -1,6 +1,6 @@
 import express from 'express';
 import { write } from 'node:fs';
-import { setUncaughtExceptionCaptureCallback } from 'node:process';
+
 
 const host = '0.0.0.0';
 const porta = 4090;
@@ -13,7 +13,7 @@ var listacadastroclientes = [];
 
 app.use(express.urlencoded({extended: true}));
 
-app.get("/menu", (req, res) => {
+app.get("/", (req, res) => {
 
     res.write(`
         <html lang="pt-br">
@@ -280,7 +280,7 @@ app.get("/cadastro", (requisicao, resposta) => {
                             <button type="submit" class="btn btn-primary">
                                 CADASTRAR
                             </button>
-                            <a button type="submit" class="btn btn-primary" href="/menu">
+                            <a button type="submit" class="btn btn-primary" href="/">
                                 VOLTAR
                             </button></a>
                         </div>
@@ -491,7 +491,7 @@ app.post("/cadastro", (requisicao, resposta) => {
                             <button type="submit" class="btn btn-primary">
                                 CADASTRAR
                             </button>
-                            <a button type="submit" class="btn btn-primary" href="/menu">
+                            <a button type="submit" class="btn btn-primary" href="/">
                                 VOLTAR
                             </button></a>
                         </div>
@@ -588,7 +588,7 @@ app.get("/listacadastro", (requisicao, resposta) => {
                         CONTINUAR
                     </button></a>
                 
-                    <a button type="submit" class="btn btn-primary" href="/menu">
+                    <a button type="submit" class="btn btn-primary" href="/">
                         VOLTAR
                     </button></a>
                         
@@ -697,7 +697,7 @@ app.get("/cadastroclientes", (requisicao, resposta) => {
                             <button type="submit" class="btn btn-primary">
                                 CADASTRAR
                             </button>
-                            <a button type="submit" class="btn btn-primary" href="/menu">
+                            <a button type="submit" class="btn btn-primary" href="/">
                                 VOLTAR
                             </button></a>
                         </div>
@@ -895,7 +895,7 @@ app.post("/cadastroclientes", (requisicao, resposta) => {
                             <button type="submit" class="btn btn-primary">
                                 CADASTRAR
                             </button>
-                            <a button type="submit" class="btn btn-primary" href="/menu">
+                            <a button type="submit" class="btn btn-primary" href="/">
                                 VOLTAR
                             </button></a>
                         </div>
@@ -990,7 +990,7 @@ app.get("/listacadastroclientes", (requisicao, resposta) => {
                         CONTINUAR
                     </button></a>
                 
-                    <a button type="submit" class="btn btn-primary" href="/menu">
+                    <a button type="submit" class="btn btn-primary" href="/">
                         VOLTAR
                     </button></a>
                         
@@ -1114,7 +1114,7 @@ app.get("/login", (requisicao, resposta) => {
                         <br>
                         <br>
 
-                        <a href="/menu" class="w-100 btn btn-outline-primary">
+                        <a href="/" class="w-100 btn btn-outline-primary">
                             Retornar
                         </a>
                        
@@ -1269,7 +1269,7 @@ app.post("/login",(requisicao,resposta)=>{
                         <br>
                         <br>
 
-                        <a href="/menu" class="w-100 btn btn-outline-primary">
+                        <a href="/" class="w-100 btn btn-outline-primary">
                             Retornar
                         </a>
                        
@@ -1301,7 +1301,7 @@ app.post("/login",(requisicao,resposta)=>{
                         Login realizado com sucesso!
                     </div>
 
-                    <a href="/menu" class="btn btn-primary">
+                    <a href="/" class="btn btn-primary">
                         Retorne ao Menu 
                     </a>
 
@@ -1332,7 +1332,7 @@ app.get("/logout", (requisicao,resposta)=>{
                 Você saiu do sistema com sucesso!
             </div>
 
-            <a href="/menu" class="btn btn-primary">
+            <a href="/" class="btn btn-primary">
                 Voltar ao menu
             </a>
 
@@ -1344,5 +1344,5 @@ app.get("/logout", (requisicao,resposta)=>{
 
 
 app.listen(porta, host, () => {
-    console.log(`Servidor rodando em http://localhost:${porta}/menu`);
+    console.log(`Servidor rodando em http://localhost:${porta}`);
 });
